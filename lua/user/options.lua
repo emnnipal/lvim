@@ -3,7 +3,7 @@ vim.opt.tabstop = 2
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.mouse = nil
+-- vim.opt.mouse = nil
 
 -- general
 lvim.log.level = "info"

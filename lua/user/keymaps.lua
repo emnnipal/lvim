@@ -54,5 +54,6 @@ lvim.builtin.which_key.mappings["z"] = {
 lvim.lsp.buffer_mappings.normal_mode["gh"] = {
   vim.lsp.buf.hover, "Display hover info"
 }
+-- unmap keymap "K" from lunarvim
 lvim.lsp.buffer_mappings.normal_mode["K"] = nil
 lvim.lsp.buffer_mappings.normal_mode["<leader>m"] = { ":TSJToggle<CR>", "Toggle split/join" }
