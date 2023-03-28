@@ -50,6 +50,19 @@ lvim.builtin.which_key.mappings["z"] = {
   Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
 }
 
+lvim.builtin.which_key.mappings["s/"] = {
+  function()
+    require('telescope.builtin').current_buffer_fuzzy_find(
+      require('telescope.themes').get_dropdown {
+        winblend = 0, -- window opacity
+        previewer = true,
+      }
+    )
+  end,
+  "Fuzzy search in current buffer"
+}
+
+
 -- LSP dependent keymaps
 lvim.lsp.buffer_mappings.normal_mode["gh"] = {
   vim.lsp.buf.hover, "Display hover info"
@@ -57,3 +70,14 @@ lvim.lsp.buffer_mappings.normal_mode["gh"] = {
 -- unmap keymap "K" from lunarvim
 lvim.lsp.buffer_mappings.normal_mode["K"] = nil
 lvim.lsp.buffer_mappings.normal_mode["<leader>m"] = { ":TSJToggle<CR>", "Toggle split/join" }
+lvim.lsp.buffer_mappings.normal_mode["gr"] = {
+  function()
+    require('telescope.builtin').lsp_references(
+      require('telescope.themes').get_dropdown {
+        winblend = 0,
+        previewer = true,
+      }
+    )
+  end,
+  "Goto references"
+}
