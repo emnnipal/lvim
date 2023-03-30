@@ -2,7 +2,9 @@ lvim.plugins = {
   {
     'akinsho/git-conflict.nvim',
     event = "BufReadPre",
-    opts = {}
+    opts = {
+      default_mappings = false
+    }
   },
   {
     'github/copilot.vim',

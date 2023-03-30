@@ -42,6 +42,37 @@ lvim.builtin.which_key.mappings["u"] = {
     ":EslintFixAll<CR>",
     "Fix eslint errors",
   },
+  c = {
+    name = " Resolve Git Conflicts",
+    o = {
+      ":GitConflictChooseOurs<CR>",
+      "Choose ours"
+    },
+    t = {
+      ":GitConflictChooseTheirs<CR>",
+      "Choose theirs"
+    },
+    b = {
+      ":GitConflictChooseBoth<CR>",
+      "Choose both"
+    },
+    n = {
+      ":GitConflictChooseNone<CR>",
+      "Choose none"
+    },
+    j = {
+      ":GitConflictPrevConflict<CR>",
+      "Move to previous conflict"
+    },
+    k = {
+      ":GitConflictNextConflict<CR>",
+      "Move to next conflict"
+    },
+    a = {
+      ":GitConflictListQf<CR>",
+      "Get all conflict to quickfix"
+    },
+  }
 }
 lvim.builtin.which_key.mappings["z"] = {
   name = "Session",
