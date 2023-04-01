@@ -112,3 +112,9 @@ lvim.lsp.buffer_mappings.normal_mode["gr"] = {
   end,
   "Goto references"
 }
+lvim.lsp.buffer_mappings.normal_mode["gd"] = {
+  function()
+    require('telescope.builtin').lsp_definitions()
+  end,
+  "Goto definition"
+}

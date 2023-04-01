@@ -97,5 +97,5 @@ lvim.plugins = {
     -- load only on require("tailwindcss-colors")
     module = "tailwindcss-colors",
     opts = {}
-  }
+  },
 }
