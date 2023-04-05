@@ -69,7 +69,8 @@ lvim.plugins = {
     event = "BufReadPre",
     requires = { 'nvim-treesitter' },
     opts = {
-      use_default_keymaps = false
+      use_default_keymaps = false,
+      max_join_length = 1200,
     }
   },
   {
