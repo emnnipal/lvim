@@ -34,7 +34,7 @@ vim.keymap.set({ '', 'v' }, 'L', '$')
 -- -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["u"] = {
+lvim.builtin.which_key.mappings["."] = {
   name = "Utilities",
   e = {
     -- to run a cli command in the background use :!cmd
