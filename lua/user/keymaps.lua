@@ -1,11 +1,12 @@
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
 lvim.leader = "space"
 
--- as much as possible, use alt + key or leader + key instead of cmd + key
--- since cmd key isn't widely supported to be used as a modifier key
+-- As much as possible, use alt + key or leader + key instead of cmd + key
+-- since cmd key isn't widely supported to be used as a modifier key.
 
--- cmd key not working in alacritty and kitty so we use leader key instead
-lvim.keys.normal_mode["<leader>w"] = ":update<CR>"
+-- Override the default save keymap in buffer_mappings so that BuffWritePre
+-- won't be triggered on every file update.
+lvim.lsp.buffer_mappings.normal_mode["<leader>w"] = { ":update<CR>", "Save" }
 lvim.keys.normal_mode["<D-s>"] = ":update<CR>"
 -- this doesn't work
 -- lvim.keys.insert_mode["<D-s>"] = ":update<CR>"
@@ -34,7 +35,7 @@ vim.keymap.set({ '', 'v' }, 'L', '$')
 -- -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["."] = {
+lvim.builtin.which_key.mappings["i"] = {
   name = "Utilities",
   e = {
     -- to run a cli command in the background use :!cmd
