@@ -67,16 +67,16 @@ lvim.plugins = {
   {
     'Wansmer/treesj',
     event = "BufReadPre",
-    requires = { 'nvim-treesitter' },
+    dependencies = { 'nvim-treesitter' },
     opts = {
       use_default_keymaps = false,
       max_join_length = 1200,
-    }
+    },
   },
   {
     "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    module = "persistence",
+    lazy = true,
     opts = {
       dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
       options = { "buffers", "curdir", "tabpages", "winsize" },
@@ -95,8 +95,7 @@ lvim.plugins = {
   },
   {
     "themaxmarchuk/tailwindcss-colors.nvim",
-    -- load only on require("tailwindcss-colors")
-    module = "tailwindcss-colors",
+    lazy = true,
     opts = {}
   },
 }
