@@ -13,6 +13,8 @@ lvim.keys.normal_mode["<D-s>"] = ":update<CR>"
 
 lvim.keys.normal_mode["<leader>k"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<leader>j"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<D-k>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<D-j>"] = ":BufferLineCyclePrev<CR>"
 
 -- vim multi select custom keymaps
 lvim.keys.normal_mode["<A-k>"] = '<Plug>(VM-Add-Cursor-Up)'
