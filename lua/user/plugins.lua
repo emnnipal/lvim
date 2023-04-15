@@ -47,7 +47,7 @@ lvim.plugins = {
         --   style = "italic",
         -- }
         highlights.LineNr = {
-          fg = "#565f89",
+          fg = "#4e557b",
         }
         highlights.CursorLineNr = {
           fg = "#9aa5ce",
