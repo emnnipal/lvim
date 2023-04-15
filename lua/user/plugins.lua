@@ -38,6 +38,24 @@ lvim.plugins = {
     opts = {}
   },
   {
+    "folke/tokyonight.nvim",
+    lazy = not vim.startswith(lvim.colorscheme, "tokyonight"),
+    opts = {
+      on_highlights = function(highlights)
+        -- highlights.Comment = {
+        --   fg = "#5c6691",
+        --   style = "italic",
+        -- }
+        highlights.LineNr = {
+          fg = "#565f89",
+        }
+        highlights.CursorLineNr = {
+          fg = "#9aa5ce",
+        }
+      end,
+    }
+  },
+  {
     'loctvl842/monokai-pro.nvim',
     lazy = lvim.colorscheme ~= "monokai-pro", -- load on colorscheme change
     opts = {
