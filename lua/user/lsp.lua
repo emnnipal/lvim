@@ -36,7 +36,12 @@ lsp_manager.setup("eslint")
 local nvim_lsp = require("lspconfig")
 nvim_lsp["tailwindcss"].setup({
   on_attach = function(client, bufnr)
-    require("tailwindcss-colors").buf_attach(bufnr)
+    local tw_highlight = require('tailwind-highlight')
+    tw_highlight.setup(client, bufnr, {
+      single_column = false,
+      mode = 'background',
+      debounce = 200,
+    })
   end
   ,
 })

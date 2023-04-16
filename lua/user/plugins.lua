@@ -13,7 +13,7 @@ lvim.plugins = {
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
       vim.g.copilot_tab_fallback = ""
-      local cmp = require "cmp"
+      local cmp = require("cmp")
       lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -112,8 +112,7 @@ lvim.plugins = {
     end,
   },
   {
-    "themaxmarchuk/tailwindcss-colors.nvim",
+    'princejoogie/tailwind-highlight.nvim',
     lazy = true,
-    opts = {}
-  },
+  }
 }
