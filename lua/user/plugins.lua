@@ -1,3 +1,5 @@
+require("user.plugins.telescope")
+
 lvim.plugins = {
   {
     'akinsho/git-conflict.nvim',

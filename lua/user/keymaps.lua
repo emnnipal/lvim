@@ -37,10 +37,11 @@ vim.keymap.set({ '', 'v' }, 'L', '$')
 -- -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["lR"] = { ":LspRestart<CR>", "Restart LSP" }
 lvim.builtin.which_key.mappings["i"] = {
   name = "Utilities",
   e = {
-    -- to run a cli command in the background use :!cmd
+    -- to run a cli command use :!cmd
     -- ":!npm run env -- eslint --fix --cache %<CR><CR>",
     ":EslintFixAll<CR>",
     "Fix eslint errors",
@@ -83,16 +84,28 @@ lvim.builtin.which_key.mappings["z"] = {
   l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
   Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
 }
-
-lvim.builtin.which_key.mappings["s/"] = {
+lvim.builtin.which_key.mappings["sa"] = {
   function()
-    require('telescope.builtin').current_buffer_fuzzy_find(
-      require('telescope.themes').get_dropdown {
-        winblend = 0, -- window opacity
-        previewer = true,
-      }
-    )
+    local opts = {
+      prompt_title = "Find All Files",
+      file_ignore_patterns = { 'node_modules', '.git' },
+      hidden = true,
+      follow = true,
+      no_ignore = true,
+    }
+    require("telescope.builtin").find_files(opts)
   end,
+  "Find All Files" }
+lvim.builtin.which_key.mappings["sr"] = {
+  function()
+    local opts = {
+      cwd_only = true
+    }
+    require("telescope.builtin").oldfiles(opts)
+  end, "Open Recent File" }
+lvim.builtin.which_key.mappings["ss"] = { "<cmd>Telescope spell_suggest<cr>", "Spell Suggest" }
+lvim.builtin.which_key.mappings["s/"] = {
+  "<cmd>Telescope current_buffer_fuzzy_find<cr>",
   "Fuzzy search in current buffer"
 }
 
