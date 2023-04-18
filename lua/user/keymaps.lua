@@ -90,7 +90,6 @@ lvim.builtin.which_key.mappings["sa"] = {
       prompt_title = "Find All Files",
       file_ignore_patterns = { 'node_modules', '.git' },
       hidden = true,
-      follow = true,
       no_ignore = true,
     }
     require("telescope.builtin").find_files(opts)
