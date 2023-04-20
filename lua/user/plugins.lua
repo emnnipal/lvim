@@ -1,4 +1,5 @@
 require("user.plugins.telescope")
+require("user.plugins.cmp")
 
 lvim.plugins = {
   {
