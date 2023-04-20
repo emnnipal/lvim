@@ -1,11 +1,12 @@
 -- allow duplicates in the completion menu
 lvim.builtin.cmp.formatting.duplicates.nvim_lsp = 1
 lvim.builtin.cmp.formatting.duplicates_default = 1
--- lvim.builtin.cmp.formatting.max_width = 30
+lvim.builtin.cmp.formatting.max_width = 36
 
 -- customize the completion menu
 lvim.builtin.cmp.formatting.format = function(entry, vim_item)
   local max_width = lvim.builtin.cmp.formatting.max_width
+  local max_detail_width = 20
   local kind = vim_item.kind
 
   if max_width ~= 0 and #vim_item.abbr > max_width then
@@ -40,7 +41,7 @@ lvim.builtin.cmp.formatting.format = function(entry, vim_item)
     end
   end
   local source_name = lvim.builtin.cmp.formatting.source_names[entry.source.name]
-  local detail = string.sub(entry.completion_item.detail or "", 1, 20)
+  local detail = string.sub(entry.completion_item.detail or "", 1, max_detail_width)
 
   -- vim_item.menu = string.format("(%s) %s", kind, detail)
   vim_item.menu = string.format("%s %s", source_name, detail)
