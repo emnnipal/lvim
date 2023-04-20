@@ -1,6 +1,7 @@
 -- allow duplicates in the completion menu
 lvim.builtin.cmp.formatting.duplicates.nvim_lsp = 1
 lvim.builtin.cmp.formatting.duplicates_default = 1
+-- lvim.builtin.cmp.formatting.max_width = 30
 
 -- customize the completion menu
 lvim.builtin.cmp.formatting.format = function(entry, vim_item)
@@ -11,7 +12,7 @@ lvim.builtin.cmp.formatting.format = function(entry, vim_item)
     vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. lvim.icons.ui.Ellipsis
   end
   if lvim.use_icons then
-    vim_item.kind = lvim.builtin.cmp.formatting.kind_icons[vim_item.kind]
+    vim_item.kind = lvim.builtin.cmp.formatting.kind_icons[kind]
 
     if entry.source.name == "copilot" then
       vim_item.kind = lvim.icons.git.Octoface
@@ -38,8 +39,11 @@ lvim.builtin.cmp.formatting.format = function(entry, vim_item)
       vim_item.kind_hl_group = "CmpItemKindEmoji"
     end
   end
+  local source_name = lvim.builtin.cmp.formatting.source_names[entry.source.name]
+  local detail = string.sub(entry.completion_item.detail or "", 1, 20)
 
-  vim_item.menu = string.format("(%s) %s", kind, entry.completion_item.detail or "")
+  -- vim_item.menu = string.format("(%s) %s", kind, detail)
+  vim_item.menu = string.format("%s %s", source_name, detail)
   vim_item.dup = lvim.builtin.cmp.formatting.duplicates[entry.source.name]
       or lvim.builtin.cmp.formatting.duplicates_default
 
