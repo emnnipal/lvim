@@ -116,5 +116,9 @@ lvim.plugins = {
   {
     'princejoogie/tailwind-highlight.nvim',
     lazy = true,
+  },
+  {
+    "davidosomething/format-ts-errors.nvim",
+    lazy = true
   }
 }

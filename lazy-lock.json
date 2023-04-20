@@ -10,6 +10,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "copilot.vim": { "branch": "release", "commit": "b6e5624351ba735e25eb8864d7d22819aad00606" },
   "everforest-nvim": { "branch": "main", "commit": "bfb088780ab015a25772794c8645a3b677778f08" },
+  "format-ts-errors.nvim": { "branch": "main", "commit": "12cbb8407b90ec133fde851d70a57b9e8d9d7878" },
   "friendly-snippets": { "branch": "main", "commit": "b1b78a6433268fc172adb5a843e165035e83861e" },
   "git-blame.nvim": { "branch": "master", "commit": "06c20ea71a4519fc60caba9ac688f2f6404f03d5" },
   "git-conflict.nvim": { "branch": "main", "commit": "2957f747e1a34f1854e4e0efbfbfa59a1db04af5" },
