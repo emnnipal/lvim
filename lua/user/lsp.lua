@@ -33,8 +33,7 @@ local lsp_manager = require("lvim.lsp.manager")
 lsp_manager.setup("eslint")
 
 -- Tailwind CSS color highlighting
-local nvim_lsp = require("lspconfig")
-nvim_lsp["tailwindcss"].setup({
+lsp_manager.setup("tailwindcss", {
   on_attach = function(client, bufnr)
     local tw_highlight = require('tailwind-highlight')
     tw_highlight.setup(client, bufnr, {
@@ -46,7 +45,7 @@ nvim_lsp["tailwindcss"].setup({
   ,
 })
 
-nvim_lsp["tsserver"].setup({
+lsp_manager.setup("tsserver", {
   handlers = {
     ["textDocument/publishDiagnostics"] = function(
       _,
@@ -82,7 +81,7 @@ nvim_lsp["tsserver"].setup({
         config
       )
     end,
-  },
+  }
 })
 
 -- -- you can set a custom on_attach function that will be used for all the language servers
