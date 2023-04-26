@@ -40,29 +40,15 @@ lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Project
 lvim.builtin.which_key.mappings["lR"] = { ":LspRestart<CR>", "Restart LSP" }
 lvim.builtin.which_key.mappings["i"] = {
   name = "Utilities",
-  e = {
-    -- to run a cli command use :!cmd
-    -- ":!npm run env -- eslint --fix --cache %<CR><CR>",
-    ":EslintFixAll<CR>",
-    "Fix eslint errors",
-  },
   c = {
     name = " Resolve Git Conflicts",
-    o = {
-      ":GitConflictChooseOurs<CR>",
-      "Choose ours"
-    },
-    t = {
-      ":GitConflictChooseTheirs<CR>",
-      "Choose theirs"
+    a = {
+      ":GitConflictListQf<CR>",
+      "Get all conflict to quickfix"
     },
     b = {
       ":GitConflictChooseBoth<CR>",
       "Choose both"
-    },
-    n = {
-      ":GitConflictChooseNone<CR>",
-      "Choose none"
     },
     j = {
       ":GitConflictPrevConflict<CR>",
@@ -72,11 +58,28 @@ lvim.builtin.which_key.mappings["i"] = {
       ":GitConflictNextConflict<CR>",
       "Move to next conflict"
     },
-    a = {
-      ":GitConflictListQf<CR>",
-      "Get all conflict to quickfix"
+    n = {
+      ":GitConflictChooseNone<CR>",
+      "Choose none"
     },
-  }
+    o = {
+      ":GitConflictChooseOurs<CR>",
+      "Choose ours"
+    },
+    t = {
+      ":GitConflictChooseTheirs<CR>",
+      "Choose theirs"
+    },
+  },
+  e = {
+    -- to run a cli command use :!cmd
+    -- ":!npm run env -- eslint --fix --cache %<CR><CR>",
+    ":EslintFixAll<CR>",
+    "Fix eslint errors",
+  },
+  -- TODO: create keymap for replacing all instances of a word in a git repo
+  -- r = { "Replace string",
+  --   "<cmd>exe '%s/\\v\<' .. expand('<cword>') .. '>/' .. input('Replace \'' .. expand('<cword>') .. '\' by? ') .. '/g'<cr>" }
 }
 lvim.builtin.which_key.mappings["z"] = {
   name = "Session",
