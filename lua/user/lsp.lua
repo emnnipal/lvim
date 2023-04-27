@@ -31,6 +31,7 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 
 local lsp_manager = require("lvim.lsp.manager")
 lsp_manager.setup("eslint")
+lsp_manager.setup("emmet_ls")
 
 -- Tailwind CSS color highlighting
 lsp_manager.setup("tailwindcss", {
