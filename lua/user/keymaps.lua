@@ -37,7 +37,10 @@ vim.keymap.set({ '', 'v' }, 'L', '$')
 -- -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["lR"] = { ":LspRestart<CR>", "Restart LSP" }
+
+-- TODO: remove LvimCacheReset once missing LspRestart issue is fixed
+lvim.builtin.which_key.mappings["lR"] = { ":LvimCacheReset<CR>:LspRestart<CR>", "Restart LSP" }
+
 lvim.builtin.which_key.mappings["i"] = {
   name = "Utilities",
   c = {
