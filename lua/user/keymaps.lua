@@ -34,59 +34,60 @@ vim.keymap.set({ '', 'v' }, 'K', '10k')
 vim.keymap.set({ '', 'v' }, 'H', '^')
 vim.keymap.set({ '', 'v' }, 'L', '$')
 
--- -- Use which-key to add extra bindings with the leader-key prefix
+-- which_key mappings
 lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["lR"] = { ":LspRestart<CR>", "Restart LSP" }
+
 lvim.builtin.which_key.mappings["i"] = {
   name = "Utilities",
   c = {
     name = " Resolve Git Conflicts",
-    a = {
-      ":GitConflictListQf<CR>",
-      "Get all conflict to quickfix"
-    },
-    b = {
-      ":GitConflictChooseBoth<CR>",
-      "Choose both"
-    },
-    j = {
-      ":GitConflictPrevConflict<CR>",
-      "Move to previous conflict"
-    },
-    k = {
-      ":GitConflictNextConflict<CR>",
-      "Move to next conflict"
-    },
-    n = {
-      ":GitConflictChooseNone<CR>",
-      "Choose none"
-    },
-    o = {
-      ":GitConflictChooseOurs<CR>",
-      "Choose ours"
-    },
-    t = {
-      ":GitConflictChooseTheirs<CR>",
-      "Choose theirs"
-    },
+    a = { ":GitConflictListQf<CR>", "Get all conflict to quickfix" },
+    b = { ":GitConflictChooseBoth<CR>", "Choose both" },
+    j = { ":GitConflictPrevConflict<CR>", "Move to previous conflict" },
+    k = { ":GitConflictNextConflict<CR>", "Move to next conflict" },
+    n = { ":GitConflictChooseNone<CR>", "Choose none" },
+    o = { ":GitConflictChooseOurs<CR>", "Choose ours" },
+    t = { ":GitConflictChooseTheirs<CR>", "Choose theirs" },
   },
-  e = {
-    -- to run a cli command use :!cmd
-    -- ":!npm run env -- eslint --fix --cache %<CR><CR>",
-    ":EslintFixAll<CR>",
-    "Fix eslint errors",
-  },
-  -- TODO: create keymap for replacing all instances of a word in a git repo
-  -- r = { "Replace string",
-  --   "<cmd>exe '%s/\\v\<' .. expand('<cword>') .. '>/' .. input('Replace \'' .. expand('<cword>') .. '\' by? ') .. '/g'<cr>" }
+  e = { ":EslintFixAll<CR>", "Fix eslint errors" },
 }
+
 lvim.builtin.which_key.mappings["z"] = {
   name = "Session",
   c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
   l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
   Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
 }
+
+lvim.builtin.which_key.mappings["r"] = {
+  name = "SearchReplaceSingleBuffer",
+  s = { "<CMD>SearchReplaceSingleBufferSelections<CR>", "SearchReplaceSingleBuffer [s]elction list" },
+  o = { "<CMD>SearchReplaceSingleBufferOpen<CR>", "[o]pen" },
+  w = { "<CMD>SearchReplaceSingleBufferCWord<CR>", "[w]ord" },
+  W = { "<CMD>SearchReplaceSingleBufferCWORD<CR>", "[W]ORD" },
+  e = { "<CMD>SearchReplaceSingleBufferCExpr<CR>", "[e]xpr" },
+  f = { "<CMD>SearchReplaceSingleBufferCFile<CR>", "[f]ile" },
+
+  b = {
+    name = "SearchReplaceMultiBuffer",
+    s = { "<CMD>SearchReplaceMultiBufferSelections<CR>", "SearchReplaceMultiBuffer [s]elction list" },
+    o = { "<CMD>SearchReplaceMultiBufferOpen<CR>", "[o]pen" },
+    w = { "<CMD>SearchReplaceMultiBufferCWord<CR>", "[w]ord" },
+    W = { "<CMD>SearchReplaceMultiBufferCWORD<CR>", "[W]ORD" },
+    e = { "<CMD>SearchReplaceMultiBufferCExpr<CR>", "[e]xpr" },
+    f = { "<CMD>SearchReplaceMultiBufferCFile<CR>", "[f]ile" },
+  }
+}
+
+lvim.keys.visual_block_mode["<C-r>"] = [[<CMD>SearchReplaceSingleBufferVisualSelection<CR>]]
+lvim.keys.visual_block_mode["<C-s>"] = [[<CMD>SearchReplaceWithinVisualSelection<CR>]]
+lvim.keys.visual_block_mode["<C-b>"] = [[<CMD>SearchReplaceWithinVisualSelectionCWord<CR>]]
+
+vim.o.inccommand = "split"
+
+
 lvim.builtin.which_key.mappings["sa"] = {
   function()
     local opts = {

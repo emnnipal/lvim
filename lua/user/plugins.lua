@@ -121,5 +121,10 @@ lvim.plugins = {
   {
     "davidosomething/format-ts-errors.nvim",
     lazy = true
-  }
+  },
+  {
+    "roobert/search-replace.nvim",
+    event = "BufReadPre",
+    opts = {},
+  },
 }
