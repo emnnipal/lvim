@@ -61,6 +61,7 @@ lvim.builtin.which_key.mappings["z"] = {
   Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
 }
 
+-- search and replace text
 lvim.builtin.which_key.mappings["r"] = {
   name = "SearchReplaceSingleBuffer",
   s = { "<CMD>SearchReplaceSingleBufferSelections<CR>", "SearchReplaceSingleBuffer [s]elction list" },
@@ -88,6 +89,7 @@ lvim.keys.visual_block_mode["<C-b>"] = [[<CMD>SearchReplaceWithinVisualSelection
 vim.o.inccommand = "split"
 
 
+-- telescope keymaps
 lvim.builtin.which_key.mappings["sa"] = {
   function()
     local opts = {
@@ -112,8 +114,6 @@ lvim.builtin.which_key.mappings["s/"] = {
   "Fuzzy search in current buffer"
 }
 
-
--- LSP dependent keymaps
 lvim.lsp.buffer_mappings.normal_mode["gh"] = {
   vim.lsp.buf.hover, "Display hover info"
 }
