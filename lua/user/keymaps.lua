@@ -52,6 +52,8 @@ lvim.builtin.which_key.mappings["i"] = {
     t = { ":GitConflictChooseTheirs<CR>", "Choose theirs" },
   },
   e = { ":EslintFixAll<CR>", "Fix eslint errors" },
+  w = { ":set wrap<CR>", "Toggle wrap" },
+  W = { ":set nowrap<CR>", "Toggle nowrap" },
 }
 
 lvim.builtin.which_key.mappings["z"] = {
