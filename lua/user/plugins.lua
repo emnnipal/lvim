@@ -123,8 +123,7 @@ lvim.plugins = {
     lazy = true
   },
   {
-    "roobert/search-replace.nvim",
-    event = "BufReadPre",
-    opts = {},
+    "nvim-pack/nvim-spectre",
+    lazy = true
   },
 }

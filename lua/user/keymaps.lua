@@ -13,8 +13,8 @@ lvim.keys.normal_mode["<D-s>"] = ":update<CR>"
 
 lvim.keys.normal_mode["<leader>k"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<leader>j"] = ":BufferLineCyclePrev<CR>"
-lvim.keys.normal_mode["<D-k>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<D-j>"] = ":BufferLineCyclePrev<CR>"
+-- lvim.keys.normal_mode["<D-k>"] = ":BufferLineCycleNext<CR>"
+-- lvim.keys.normal_mode["<D-j>"] = ":BufferLineCyclePrev<CR>"
 
 -- vim multi select custom keymaps
 lvim.keys.normal_mode["<A-k>"] = '<Plug>(VM-Add-Cursor-Up)'
@@ -65,30 +65,16 @@ lvim.builtin.which_key.mappings["z"] = {
 
 -- search and replace text
 lvim.builtin.which_key.mappings["r"] = {
-  name = "SearchReplaceSingleBuffer",
-  s = { "<CMD>SearchReplaceSingleBufferSelections<CR>", "SearchReplaceSingleBuffer [s]elction list" },
-  o = { "<CMD>SearchReplaceSingleBufferOpen<CR>", "[o]pen" },
-  w = { "<CMD>SearchReplaceSingleBufferCWord<CR>", "[w]ord" },
-  W = { "<CMD>SearchReplaceSingleBufferCWORD<CR>", "[W]ORD" },
-  e = { "<CMD>SearchReplaceSingleBufferCExpr<CR>", "[e]xpr" },
-  f = { "<CMD>SearchReplaceSingleBufferCFile<CR>", "[f]ile" },
-
-  b = {
-    name = "SearchReplaceMultiBuffer",
-    s = { "<CMD>SearchReplaceMultiBufferSelections<CR>", "SearchReplaceMultiBuffer [s]elction list" },
-    o = { "<CMD>SearchReplaceMultiBufferOpen<CR>", "[o]pen" },
-    w = { "<CMD>SearchReplaceMultiBufferCWord<CR>", "[w]ord" },
-    W = { "<CMD>SearchReplaceMultiBufferCWORD<CR>", "[W]ORD" },
-    e = { "<CMD>SearchReplaceMultiBufferCExpr<CR>", "[e]xpr" },
-    f = { "<CMD>SearchReplaceMultiBufferCFile<CR>", "[f]ile" },
-  }
+  name = "Search and replace",
+  s = { '<CMD>lua require("spectre").open()<CR>', "Open Spectre" },
+  w = { '<CMD>lua require("spectre").open_visual({select_word=true})<CR>', "Search current word" },
+  p = { '<CMD>lua require("spectre").open_file_search({select_word=true})<CR>', "Search on current file" },
 }
 
-lvim.keys.visual_block_mode["<C-r>"] = [[<CMD>SearchReplaceSingleBufferVisualSelection<CR>]]
-lvim.keys.visual_block_mode["<C-s>"] = [[<CMD>SearchReplaceWithinVisualSelection<CR>]]
-lvim.keys.visual_block_mode["<C-b>"] = [[<CMD>SearchReplaceWithinVisualSelectionCWord<CR>]]
-
-vim.o.inccommand = "split"
+lvim.builtin.which_key.vmappings["r"] = {
+  name = "Search and replace",
+  w = { '<ESC><CMD>lua require("spectre").open_visual()<CR>', "Search current word" },
+}
 
 
 -- telescope keymaps
